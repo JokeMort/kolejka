@@ -7,17 +7,19 @@
 
 
 class Kolejka{
-    int *pierwszy_element;
-    int wielkosc;
-    struct element{
-        float wartosc;
-        int *pozycja_nastepny;
-    };
 public:
-    void dodaj_element(int);
+
+    struct element{
+        int wartosc = 0;
+        int *pozycja_nastepny = nullptr;
+    };
+    element *pierwszy_element;
+    int wielkosc;
+    void dodaj_element(int, element*);
     float pobierz_wartosc();
     int *pobierz_adres();
     void usun_element();
+    Kolejka();
 };
 
 
