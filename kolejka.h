@@ -5,18 +5,19 @@
 #ifndef KOLEJKA_KOLEJKA_H
 #define KOLEJKA_KOLEJKA_H
 
-
+struct element{
+    int wartosc;
+    element *pozycja_nastepny;
+};
 class Kolejka{
 public:
 
-    struct element{
-        int wartosc = 0;
-        int *pozycja_nastepny = nullptr;
-    };
-    element *pierwszy_element;
+    element *pierwszy;
+    element *kursor;
+    element *ostatni;
     int wielkosc;
-    void dodaj_element(int, element*);
-    float pobierz_wartosc();
+    element * dodaj_element(int, int *);
+    int pobierz_wartosc(int );
     int *pobierz_adres();
     void usun_element();
     Kolejka();

@@ -4,7 +4,10 @@ using namespace std;
 
 int main() {
 class Kolejka kolejka;
-kolejka.dodaj_element(5, kolejka.pierwszy_element);
-    return 0;
+int *pointer = kolejka.pobierz_adres();
+for (int n = 0; n < 5 ; n++) {
+    pointer = kolejka.dodaj_element(n, pointer);
+}
+return 0;
 }
 
