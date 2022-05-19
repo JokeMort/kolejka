@@ -16,9 +16,9 @@ public:
     element *kursor;
     element *ostatni;
     int wielkosc;
-    element * dodaj_element(int, int *);
+    element * dodaj_element(int, element *);
     int pobierz_wartosc(int );
-    int *pobierz_adres();
+    element *pobierz_adres();
     void usun_element();
     Kolejka();
 };

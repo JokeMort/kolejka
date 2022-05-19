@@ -4,17 +4,18 @@
 #include <iostream>
 #include "kolejka.h"
 using namespace std;
-element *Kolejka::dodaj_element(int user_input, int *pozycja_nowy) {
-    kursor = new element;
-    ostatni = new  element;
+element *Kolejka::dodaj_element(int user_input, element *pozycja_nowy) {
+    kursor = pozycja_nowy;
+    ostatni = new element;
     if (wielkosc == 0){
         (*pierwszy).wartosc = user_input;
-        (*pierwszy).pozycja_nastepny = kursor;
+        (*pierwszy).pozycja_nastepny = ostatni;
+        kursor = ostatni;
         wielkosc++;
         return pierwszy->pozycja_nastepny;
     }
     kursor->wartosc = user_input;
-    kursor->pozycja_nastepny = ostatni;
+    (*kursor).pozycja_nastepny = ostatni;
     wielkosc++;
     return (*kursor).pozycja_nastepny;
 }
@@ -24,16 +25,14 @@ int Kolejka::pobierz_wartosc(int pozycja){
         cout << "przekroczenie parametrow kolejki\n";
     }
     kursor = pierwszy;
-    int zwracana_wartosc;
     for (int n = 0; n < pozycja; n++){
-        zwracana_wartosc = kursor->wartosc;
-        kursor = reinterpret_cast<element *>((*kursor).pozycja_nastepny);
+        kursor = (*kursor).pozycja_nastepny;
     }
-    return zwracana_wartosc;
+    return kursor->wartosc;
 }
-ele *Kolejka::pobierz_adres() {
+element *Kolejka::pobierz_adres() {
     if (wielkosc == 0){
-        return (int*)&pierwszy;
+        return pierwszy;
     }
     return kursor->pozycja_nastepny;
 }
