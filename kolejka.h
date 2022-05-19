@@ -12,13 +12,12 @@ struct element{
 };
 class Kolejka{
 public:
-
     element *pierwszy;
     element *kursor;
     element *ostatni;
     int wielkosc;
     element * dodaj_element(int, element *);
-    int pobierz_wartosc(int );
+    void wypisz_wartosci();
     element *pobierz_adres();
     void usun_element();
     Kolejka();
