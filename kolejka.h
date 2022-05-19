@@ -8,6 +8,7 @@
 struct element{
     int wartosc;
     element *pozycja_nastepny;
+    element *pozycja_poprzedni;
 };
 class Kolejka{
 public:
