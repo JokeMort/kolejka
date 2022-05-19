@@ -21,6 +21,7 @@ public:
     element *pobierz_adres();
     void usun_element();
     Kolejka();
+    ~Kolejka();
 };
 
 

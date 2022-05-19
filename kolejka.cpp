@@ -42,10 +42,15 @@ element *Kolejka::pobierz_adres() {
     return kursor->pozycja_nastepny;
 }
 void Kolejka::usun_element() {
-    ostatni = (*ostatni).pozycja_poprzedni;
-    wielkosc--;
+    pierwszy = (*pierwszy).pozycja_nastepny;            //usuwania pierwszego elementu
+    wielkosc--;                                         //zmniejszenie wielkosci
 }
-Kolejka::Kolejka(){
+Kolejka::Kolejka(){                                     //konstruktor
     wielkosc = 0;
     pierwszy = new element;
 }
+Kolejka::~Kolejka(){                                    //destructor
+    delete pierwszy;
+    delete kursor;
+    delete ostatni;
+};
