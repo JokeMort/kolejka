@@ -6,7 +6,7 @@
 #define KOLEJKA_KOLEJKA_H
 
 struct element{
-    int wartosc;
+    float wartosc;
     element *pozycja_nastepny;
     element *pozycja_poprzedni;
 };
@@ -16,9 +16,9 @@ public:
     element *kursor;
     element *ostatni;
     int wielkosc;
-    element * dodaj_element(int, element *);
+    element * dodaj_element(float, element *);
     void wypisz_wartosci();
-    element *pobierz_adres();
+    element *pobierz_adres() const;
     void usun_element();
     Kolejka();
     ~Kolejka();

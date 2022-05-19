@@ -4,7 +4,7 @@
 #include <iostream>
 #include "kolejka.h"
 using namespace std;
-element *Kolejka::dodaj_element(int user_input, element *pozycja_nowy) {
+element *Kolejka::dodaj_element(float user_input, element *pozycja_nowy) {
     element *temp = kursor;                     //zapisywanie n-1 kursora
     kursor = pozycja_nowy;                      //przesuniecie kursora na n pozycje
     ostatni = new element;                      //utworzenie n+1  elementu
@@ -35,7 +35,7 @@ void Kolejka::wypisz_wartosci(){
     }
     cout << endl;
 }
-element *Kolejka::pobierz_adres() {
+element *Kolejka::pobierz_adres() const {
     if (wielkosc == 0){
         return pierwszy;
     }
@@ -53,4 +53,4 @@ Kolejka::~Kolejka(){                                    //destructor
     delete pierwszy;
     delete kursor;
     delete ostatni;
-};
+}
